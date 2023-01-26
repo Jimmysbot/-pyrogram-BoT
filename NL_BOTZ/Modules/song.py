@@ -78,7 +78,7 @@ def a(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'⍟ <code> {title} </code>/n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}/n⍟ Sᴏɴɢ Lɪɴᴋ:<a href=https://t.me/DCENIMAS>Cʟɪᴄᴋ Hᴇʀᴇ </a>/n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/mallu_music_group>Mᴀʟʟᴜ Mᴜsɪᴄ</a>'
+        rep = f'⍟ <code> {title} </code>\n⍟Dᴜʀᴀᴛɪᴏɴ:{duration}\n⍟ Sᴏɴɢ Lɪɴᴋ:<a href=https://t.me/DCENIMAS>Cʟɪᴄᴋ Hᴇʀᴇ </a>\n⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/mallu_music_group>Mᴀʟʟᴜ Mᴜsɪᴄ</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -242,7 +242,7 @@ async def vsong(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`"
+        message.chat.id, f"✨Fᴇᴄᴛʜɪɴɢ.."
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
@@ -280,8 +280,10 @@ async def vsong(client, message: Message):
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
-**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
+⍟ <code> {title} </code>
+⍟Dᴜʀᴀᴛɪᴏɴ:{duration}
+⍟ Sᴏɴɢ Lɪɴᴋ:<a href=https://t.me/DCENIMAS>Cʟɪᴄᴋ Hᴇʀᴇ </a>
+⍟ Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/mallu_music_group>Mᴀʟʟᴜ Mᴜsɪᴄ</a>'
 """
     await client.send_video(
         message.chat.id,
