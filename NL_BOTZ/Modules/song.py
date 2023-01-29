@@ -27,13 +27,13 @@ def time_to_seconds(time):
 
 ## Commands --------------------------------
 
-@Client.on_message(filters.command(["song", "mp3"]) & ~filters.channel & ~filters.edited)
+@Client.on_message(filters.command(["song", "find"]) & ~filters.channel & ~filters.edited)
 def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('☆ 𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠 𝐅𝐨𝐫 𝐘𝐨𝐮𝐫 𝐒𝐨𝐧𝐠...☆')
+    m = message.reply('**🎧processing Aᴜᴅɪᴏ..🎵**')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
@@ -57,7 +57,7 @@ def a(client, message):
             #     m.edit("Exceeded 30mins cap")
             #     return
 
-            performer = f"✯ 𝚃𝙷𝙾𝙼𝙰𝚂 𝚂𝙷𝙴𝙻𝙱𝚈 ✯" 
+            performer = f"Mallu Music Server" 
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
@@ -72,13 +72,13 @@ def a(client, message):
         )
         print(str(e))
         return
-    m.edit("☆ 𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠 𝐘𝐨𝐮𝐫 𝐒𝐨𝐧𝐠...☆")
+    m.edit("<code>✨Fecthing.</code>")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f'<b>🎸 ᴛɪᴛᴛʟᴇ ››</b> <a href=https://t.me/movie_lookam>{title}</a>\n<b>🎙️ ᴅᴜʀᴀᴛɪᴏɴ ››</b> <code>{duration}</code>\n<b>📺 ᴠɪᴇᴡs  ››</b><code>{views}</code>\n<b>🗣️ ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ ››</b> {message.from_user.mention()}'
+        rep = f'⍟<code><a href=https://t.me/DCENIMAS>{title}</a></code>\n<b>⍟Dᴜʀᴀᴛɪᴏɴ:<code>{duration}</code>\n⍟Vᴇɪᴡs:<code>{views}</code>\n⍟Uᴘʟᴏᴀᴅᴇᴅ Bʏ:<a href=https://t.me/mallu_music_group>MᴀʟʟᴜMᴜsɪᴄ</a>'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -87,7 +87,7 @@ def a(client, message):
         m.delete()
         message.delete()
     except Exception as e:
-        m.edit('⍟ 𝐀𝐍 𝐄𝐑𝐑𝐎𝐑 𝐎𝐂𝐂𝐔𝐑𝐄𝐃 ⍟')
+        m.edit('🎼Eʀʀᴏʀ. ')
         print(e)
     try:
         os.remove(audio_file)
@@ -242,7 +242,7 @@ async def vsong(client, message: Message):
     urlissed = get_text(message)
 
     pablo = await client.send_message(
-        message.chat.id, f"**𝙵𝙸𝙽𝙳𝙸𝙽𝙶 𝚈𝙾𝚄𝚁 𝚅𝙸𝙳𝙴𝙾** `{urlissed}`"
+        message.chat.id, f"**📽️ Dowloading Your Video ..** "
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax Please Check help Menu To Know More!")
@@ -280,8 +280,7 @@ async def vsong(client, message: Message):
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"""
-**𝚃𝙸𝚃𝙻𝙴 :** [{thum}]({mo})
-**𝚁𝙴𝚀𝚄𝙴𝚂𝚃𝙴𝙳 𝙱𝚈 :** {message.from_user.mention}
+<a href=https://t.me/mallu_music_group>✨ Mᴀʟʟᴜ| Mᴜsɪᴄ 📹</a>
 """
     await client.send_video(
         message.chat.id,
