@@ -64,7 +64,7 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('**𝙵𝙾𝚄𝙽𝙳 𝙽𝙾𝚃𝙷𝙸𝙽𝙶 𝙿𝙻𝙴𝙰𝚂𝙴 𝙲𝙾𝚁𝚁𝙴𝙲𝚃 𝚃𝙷𝙴 𝚂𝙿𝙴𝙻𝙻𝙸𝙽𝙶 𝙾𝚁 𝚂𝙴𝙰𝚁𝙲𝙷 𝙰𝙽𝚈 𝙾𝚃𝙷𝙴𝚁 𝚂𝙾𝙽𝙶**')
+            m.edit('<i>Sorry, an **internal error** occurred while downloading your song, please try again later.</i>')
             return
     except Exception as e:
         m.edit(
